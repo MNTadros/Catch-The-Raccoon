@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Catch The Raccoon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="imgs/racoon.png">
+</head>
+
+<body class="bg-gradient-to-r from-purple-500 to-cyan-600 flex justify-center items-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-2xl">
+
+        <!-- Header Section -->
+        <div class="flex items-center justify-center mb-6">
+            <img src="imgs/racoon.png" alt="Raccoon" class="max-w-full mr-4 border-4 border-purple-500 rounded-full">
+            <h1 class="text-3xl font-bold text-gray-800">Catch The Raccoon: A Game in a QRCode !?</h1>
+        </div>
+
+        <!-- Project Overview -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Project Overview</h2>
+            <p class="text-gray-600 leading-relaxed">
+                "Catch The Raccoon" is a unique game embedded within a QR code. The idea was to create an interactive
+                experience that users could access by scanning a QR code. The game involves catching a mysterious
+                unnamed
+                raccoon as they jump across the screen in random patterns.
+            </p>
+        </section>
+
+        <!-- Project Breakdown -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Project Breakdown</h2>
+            <p class="text-gray-600 leading-relaxed">
+                Here is a breakdown of the project development process:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+                <li class="mb-2">Brainstorming and conceptualizing the idea.</li>
+                <li class="mb-2">Game Flow and Logic Development.</li>
+                <li class="mb-2">Initial coding and testing of the game.</li>
+                <li class="mb-2">Fitting the game into a QR code.</li>
+                <li class="mb-2">Final testing and optimization.</li>
+            </ul>
+        </section>
+
+        <!-- Code Snippet (Collapsible) -->
+        <section class="mb-8">
+            <details>
+                <summary class="text-2xl font-semibold text-gray-700 mb-4 cursor-pointer hover:text-purple-600">
+                    Code Snippet
+                </summary>
+                <pre class="bg-gray-100 p-4 rounded-lg overflow-auto mt-4">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Catch The Raccoon&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        #a {
+            position: absolute;
+            transition: top 0.5s, left 0.5s;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-gradient-to-r from-purple-500 to-cyan-600 flex justify-center items-center h-screen&quot;&gt;
+    &lt;div class=&quot;bg-white p-8 rounded-lg shadow-2xl relative&quot; style=&quot;width: 500px; height: 300px&quot;&gt;
+        &lt;h1 class=&quot;text-3xl text-center font-bold text-gray-800&quot;&gt;Catch The Raccoon&lt;/h1&gt;
+        &lt;div class=&quot;flex justify-center items-center mt-4&quot;&gt;
+            &lt;div class=&quot;text-center&quot;&gt;
+                &lt;p id=&quot;t&quot; class=&quot;text-xl font-semibold text-gray-700&quot;&gt;Time: 10&lt;/p&gt;
+                &lt;p id=&quot;s&quot; class=&quot;text-xl font-semibold text-gray-700&quot;&gt;Score: 0&lt;/p&gt;
+                &lt;button id=&quot;b&quot; class=&quot;mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none&quot;&gt;Start&lt;/button&gt;
+                &lt;svg id=&quot;a&quot; class=&quot;hidden&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 64 64&quot; width=&quot;64&quot; height=&quot;64&quot;&gt;
+                    &lt;circle cx=&quot;32&quot; cy=&quot;24&quot; r=&quot;12&quot; fill=&quot;#808080&quot; /&gt;
+                    &lt;path d=&quot;M20 22c0-6 12-6 12 0 0-6 12-6 12 0v4H20v-4z&quot; fill=&quot;#000&quot; /&gt;
+                    &lt;circle cx=&quot;26&quot; cy=&quot;22&quot; r=&quot;3&quot; fill=&quot;#FFF&quot; /&gt;
+                    &lt;circle cx=&quot;38&quot; cy=&quot;22&quot; r=&quot;3&quot; fill=&quot;#FFF&quot; /&gt;
+                    &lt;circle cx=&quot;26&quot; cy=&quot;22&quot; r=&quot;1.5&quot; fill=&quot;#000&quot; /&gt;
+                    &lt;circle cx=&quot;38&quot; cy=&quot;22&quot; r=&quot;1.5&quot; fill=&quot;#000&quot; /&gt;
+                    &lt;circle cx=&quot;20&quot; cy=&quot;18&quot; r=&quot;4&quot; fill=&quot;#808080&quot; /&gt;
+                    &lt;circle cx=&quot;44&quot; cy=&quot;18&quot; r=&quot;4&quot; fill=&quot;#808080&quot; /&gt;
+                    &lt;circle cx=&quot;20&quot; cy=&quot;18&quot; r=&quot;2&quot; fill=&quot;#FFF&quot; /&gt;
+                    &lt;circle cx=&quot;44&quot; cy=&quot;18&quot; r=&quot;2&quot; fill=&quot;#FFF&quot; /&gt;
+                    &lt;circle cx=&quot;32&quot; cy=&quot;28&quot; r=&quot;2&quot; fill=&quot;#000&quot; /&gt;
+                    &lt;path d=&quot;M28 32c0-2 4-2 4 0 0-2 4-2 4 0&quot; stroke=&quot;#000&quot; stroke-width=&quot;1&quot; fill=&quot;none&quot; /&gt;
+                &lt;/svg&gt;
+                &lt;button id=&quot;r&quot; class=&quot;mt-[15px] px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none hidden&quot;&gt;Restart&lt;/button&gt;
+                &lt;p id=&quot;g&quot; class=&quot;mt-4 text-xl font-semibold text-gray-700&quot;&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        let t = 10, s = 0, i, m; 
+        const e = document.getElementById('t'),
+            d = document.getElementById('s'),
+            b = document.getElementById('b'),
+            a = document.getElementById('a'),
+            r = document.getElementById('r'),
+            g = document.getElementById('g'),
+            c = document.querySelector('.bg-white'),
+            o = { top: &quot;50%&quot;, left: &quot;50%&quot; };
+
+        function startGame() {
+            t = 10, s = 0;
+            e.textContent = `Time: ${t}`;
+            d.textContent = `Score: ${s}`;
+            g.textContent = &quot;&quot;;
+            b.classList.add('hidden');
+            a.classList.remove('hidden');
+            r.classList.add('hidden');
+            a.style.top = o.top;
+            a.style.left = o.left;
+            clearInterval(i);
+            i = setInterval(() =&gt; {
+                t--;
+                e.textContent = `Time: ${t}`;
+                if (t &lt;= 0) {
+                    clearInterval(i);
+                    clearInterval(m);
+                    a.classList.add('hidden');
+                    r.classList.remove('hidden');
+                    g.textContent = `Game Over! You caught The Raccoon: ${s} time(s)`;
+                    a.style.top = o.top;
+                    a.style.left = o.left;
+                }
+            }, 1000);
+            n();
+            m = setInterval(n, 1000);
+        }
+
+        function n() {
+            const t = c.getBoundingClientRect(),
+                e = a.getBoundingClientRect(),
+                i = Math.random() * (t.width - e.width),
+                s = Math.random() * (t.height - e.height);
+            a.style.left = i + &quot;px&quot;;
+            a.style.top = s + &quot;px&quot;;
+        }
+
+        b.addEventListener('click', startGame);
+        a.addEventListener('click', () =&gt; {
+            s++;
+            d.textContent = `Score: ${s}`;
+            n();
+        });
+        r.addEventListener('click', startGame);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+            </details>
+        </section>
+
+        <!-- Game Variables and Their Roles (Collapsible) -->
+        <section class="mb-8">
+            <details>
+                <summary class="text-2xl font-semibold text-gray-800 mb-6 cursor-pointer hover:text-purple-600">
+                    Game Variables and Their Roles
+                </summary>
+                <ul class="space-y-4 mt-4">
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">t</span> -
+                        <span class="text-gray-700">Represents the time remaining in the game (starts at 10
+                            seconds).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">s</span> -
+                        <span class="text-gray-700">Represents the player's score (starts at 0).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">i</span> -
+                        <span class="text-gray-700">Stores the interval ID for the timer.</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">m</span> -
+                        <span class="text-gray-700">Stores the interval ID for moving the raccoon.</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">e</span> -
+                        <span class="text-gray-700">References the timer display element
+                            (<code>&lt;p id="t"&gt;</code>).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">d</span> -
+                        <span class="text-gray-700">References the score display element
+                            (<code>&lt;p id="s"&gt;</code>).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">b</span> -
+                        <span class="text-gray-700">References the start button element
+                            (<code>&lt;button id="b"&gt;</code>).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">a</span> -
+                        <span class="text-gray-700">References the raccoon SVG element
+                            (<code>&lt;svg id="a"&gt;</code>).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">r</span> -
+                        <span class="text-gray-700">References the restart button element
+                            (<code>&lt;button id="r"&gt;</code>).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">g</span> -
+                        <span class="text-gray-700">References the game result display element
+                            (<code>&lt;p id="g"&gt;</code>).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">c</span> -
+                        <span class="text-gray-700">References the game container element
+                            (<code>&lt;div class="bg-white"&gt;</code>).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">o</span> -
+                        <span class="text-gray-700">Stores the default position for the raccoon
+                            (<code>{ top: "50%", left: "50%" }</code>).</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">startGame()</span> -
+                        <span class="text-gray-700">Initializes and starts the game.</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">n()</span> -
+                        <span class="text-gray-700">Moves the raccoon to a random position within the game
+                            container.</span>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm">
+                        <span class="font-mono text-blue-600">Event Listeners</span> -
+                        <span class="text-gray-700">
+                            <ul class="list-disc list-inside mt-2">
+                                <li><code>b.addEventListener('click', startGame)</code> - Starts the game when the start
+                                    button is clicked.</li>
+                                <li><code>a.addEventListener('click', () => { ... })</code> - Increases the score and
+                                    moves the raccoon when clicked.</li>
+                                <li><code>r.addEventListener('click', startGame)</code> - Restarts the game when the
+                                    restart button is clicked.</li>
+                            </ul>
+                        </span>
+                    </li>
+                </ul>
+            </details>
+        </section>
+
+        <!-- Final Product -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4 text-center">Here is the final product in its purest
+                form:</h2>
+            <div class="flex justify-center mt-6">
+                <img src="imgs/FINALQRCode.png" alt="Final QR Code"
+                    class="max-w-full border-4 border-purple-500 rounded-lg">
+            </div>
+            <div class="flex justify-center mt-6">
+                <a href="https://.com" target="_blank" rel="noopener noreferrer" 
+                    class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"> <!-- PUT DEMO LINK HERE -->
+                    Try the Live Demo
+                </a>
+            </div>
+        </section>
+
+        <!-- Challenges Faced -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Challenges Faced</h2>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+                <li class="mb-2">Embedding a game within a QR code required optimizing the code to be as lightweight as
+                    possible (&lt;2953 Bytes).</li>
+                <li class="mb-2">Ensuring cross-device compatibility, especially on mobile devices with varying screen
+                    sizes.</li>
+                <li class="mb-2">Implementing responsive controls for the game.</li>
+            </ul>
+        </section>
+
+        <!-- Some Things That Were Sadly Impossible -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Some Things That Were Sadly Impossible</h2>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+                <li class="mb-2">Using a high-quality image of a raccoon instead of drawing an SVG.</li>
+                <li class="mb-2">Having a public leaderboard for the top high scores.</li>
+                <li class="mb-2">Including a tutorial or explanation section for the game.</li>
+                <li class="mb-2">Having a favicon for the game.</li>
+                <li class="mb-2">Including a backstory / lore for the game.</li>
+            </ul>
+        </section>
+
+        <!-- Fun Facts -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Some Fun Facts</h2>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+                <li class="mb-2">The full game is exactly:</li>
+                <ul class="list-disc list-inside text-gray-600 leading-relaxed ml-6">
+                    <li class="mb-2">2.82 KB (2,896 Bytes)</li>
+                    <li class="mb-2">249 Words</li>
+                    <li class="mb-2">2,896 Characters</li>
+                    <li class="mb-2">1 HTML File</li>
+                </ul>
+                <li class="mb-2">The game was created using HTML, CSS, and JavaScript.</li>
+                <li class="mb-2">My high score for the game was 12 catches.</li>
+                <li class="mb-2">Some legends say that the raccoon is named Heidi, but this hasn't been confirmed.</li>
+            </ul>
+        </section>
+
+        <!-- Special Thanks -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Special Thanks</h2>
+            <p class="text-gray-600 leading-relaxed">
+                A special thank you to the <a href="https://sandwich-psi.vercel.app/"
+                    class="text-blue-500 hover:underline">Sandwich - HTML to QR Code Encoder Tool</a> for its invaluable
+                assistance in the development of this project. This tool made this project possible!
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-8 text-center">
+            <p class="text-gray-600 mb-4">Thanks for reading!</p>
+            <p class="text-gray-600 mb-4">Check out the project on GitHub or try the live demo:</p>
+            <div class="flex justify-center space-x-4">
+                <a href="https://github.com/" class="text-blue-500 hover:underline">GitHub <!-- PUT REPO LINK HERE -->
+                    Repository</a>
+                <a href="https://.com" class="text-blue-500 hover:underline">Live Demo</a>         <!-- PUT DEMO LINK HERE -->
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>
